@@ -19,6 +19,7 @@ model User {
   name      String?
   positions Position[]
   departmentRoles     UserDepartmentRole[]
+  passwordTokens      PasswordToken[]
   createdAt DateTime @default(now())
 }
 
@@ -58,4 +59,13 @@ model UserDepartmentRole {
   role         Role       @relation(fields: [roleId], references: [id])
 
   @@id([userId, departmentId, roleId])
+}
+
+model PasswordToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
 }
