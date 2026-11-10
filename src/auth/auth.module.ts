@@ -4,6 +4,7 @@ import { AuthService } from './auth.service.js';
 import { MailModule } from '../mail/mail.module.js';
 
 @Module({
+  exports: [AuthService],
   imports: [MailModule],
   controllers: [AuthController],
   providers: [AuthService],

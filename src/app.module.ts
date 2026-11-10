@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma.module.js';
 import { DepartmentsModule } from './departments/departments.module.js';
 import { PositionsModule } from './positions/positions.module.js';
 import { RolesModule } from './roles/roles.module.js';
+import { UserModule } from './users/user.modules.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -24,6 +25,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     DepartmentsModule,
     PositionsModule,
     RolesModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
